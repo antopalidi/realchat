@@ -1,0 +1,21 @@
+<nav class="navbar sticky-top navbar-expand-md navbar-dark bg-secondary bg-gradient">
+  <div class="container flex-row flex-nowrap">
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <div class="navbar-nav flex-row ">
+        <%= link_to 'TurboChat', root_path, class: 'navbar-brand d-none d-md-flex ' %>
+        <% if user_signed_in? %>
+          <li><%= button_to 'Log out', destroy_user_session_path, method: :delete, class: 'nav-link border-0
+          bg-transparent'
+          %></li>
+        <% else %>
+          <li><%= link_to 'Log in', new_user_session_path, class: 'nav-link me-2' %></li>
+          <li><%= link_to 'Sign up', new_user_registration_path, class: 'nav-link' %></li>
+        <% end %>
+      </div>
+    </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
