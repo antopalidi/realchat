@@ -1,4 +1,4 @@
-<div id='chatroom_container' class="container mt-4 d-flex">
+<div id='chatroom_container' class="container d-flex pt-4">
   <div id="side_panel" class="col-md-4 col-sm-4 me-3 mb-3">
     <h5> Hi <%= @current_user.email %> </h5>
     <hr>
@@ -15,10 +15,14 @@
       <%= render @rooms %>
     </div>
   </div>
-  <div id="room_container" class="col-md-8 col-sm-8 min-vh-100 shadow-lg p-3 mb-5 bg-body rounded">
+  <div id="room_container" class="w-100">
     <% if @single_room %>
-    <h4 class="text-center"><%= @single_room.name %></h4>
-      <hr>
+      <div id="single_room" class="shadow p-3 mb-5 bg-body rounded">
+        <h4 class="text-center"><%= @user&.email || @single_room.name %></h4>
+        <hr>
+        <%= turbo_stream_from @single_room %>
+        <%= render 'messages/new_message_form' %>
+      </div>
     <% end  %>
   </div>
 
