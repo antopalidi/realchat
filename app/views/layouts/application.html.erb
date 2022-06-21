@@ -8,6 +8,12 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <style>
+      <%= ".msg-#{current_user&.id} .author" %>  {
+      color: rgb(245, 190, 7) !important;
+      ;
+      }
+    </style>
   </head>
 
   <body>
