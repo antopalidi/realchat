@@ -1,13 +1,14 @@
-<div class="message-line d-flex flex-column cont-<%=message.user.id%>">
-  <div class="d-flex justify-content-between message_box msg-<%= message.user.id %>">
-    <% unless message.room.is_private %>
-      <p class="author small mb-1 text-success"><%= message.user.email %></p>
-      <p class="small mb-1 text-muted me-3"><%= l(message.created_at, format: :short) %></p>
-    <% end %>
-  </div>
-  <div class="d-flex flex-row justify-content-start">
-    <div class="w-100">
-      <p class="small p-2 mb-3 rounded-3 w-100" style="background-color: #f5f6f7;"><%= message.body %></p>
+<div class="card-body position-relative msg_card_body">
+  <div class="position-relative d-flex justify-content-start flex-row mb-4 msg-<%= message.user.id %>">
+    <div class="msg_container bg-secondary bg-light bg-gradient min-w-50 border">
+      <%= message.body %>
+      <span class="msg_time text-muted"><%= l(message.created_at, format: :short) %></span>
+      <% unless message.room.is_private %>
+        <span class="msg_author text-muted"><%= message.user.email %></span>
+      <% end %>
+    </div>
+    <div class="img_cont_msg">
+      <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img_msg">
     </div>
   </div>
 </div>

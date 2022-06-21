@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Realchat</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Realchat</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-    <style>
-      <%= ".msg-#{current_user&.id} .author" %>  {
-      color: rgb(245, 190, 7) !important;
-      ;
-      }
-    </style>
-  </head>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
+  <style>
+    <%= ".msg-#{current_user&.id}" %>
+    {
+      justify-content: end !important;
+      flex-direction: row-reverse !important;
+    }
+  </style>
+</head>
 
-  <body>
-  <%= render 'layouts/navbar' %>
-  <main class="container">
-    <%= yield %>
-  </main>
-  </body>
+<body class="bg-light bg-gradient">
+<%= render 'layouts/navbar' %>
+<main class="container">
+  <%= yield %>
+</main>
+</body>
 </html>
