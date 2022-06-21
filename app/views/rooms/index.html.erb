@@ -1,2 +1,25 @@
-<h1>Rooms#index</h1>
-<p>Find me in app/views/rooms/index.html.erb</p>
+<div id='chatroom_container' class="container mt-4 d-flex">
+  <div id="side_panel" class="col-md-4 col-sm-4 me-3 mb-3">
+    <h5> Hi <%= @current_user.email %> </h5>
+    <hr>
+    <h4> Users </h4>
+    <%= turbo_stream_from 'users' %>
+    <div id="users">
+      <%= render @users %>
+    </div>
+    <hr>
+    <h4> Rooms </h4>
+    <%= render 'rooms/new_room_form' %>
+    <%= turbo_stream_from 'rooms' %>
+    <div id="rooms">
+      <%= render @rooms %>
+    </div>
+  </div>
+  <div id="room_container" class="col-md-8 col-sm-8 min-vh-100 shadow-lg p-3 mb-5 bg-body rounded">
+    <% if @single_room %>
+    <h4 class="text-center"><%= @single_room.name %></h4>
+      <hr>
+    <% end  %>
+  </div>
+
+</div>
