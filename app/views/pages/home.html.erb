@@ -1,11 +1,13 @@
 <h1>RealChat</h1>
 
 <%= link_to 'Start Chatting', rooms_path %>
-<%= image_tag(current_user&.avatar_thumbnail) %>
+<% if current_user %>
+  <%= image_tag(current_user.avatar_thumbnail) %>
+<% end %>
 <% if current_user %>
   <%= button_to 'Logout', destroy_user_session_path, method: :delete %>
-  <%= link_to 'Edit Account', edit_user_registration_path, class: 'btn btn-primary'%>
-  <% else %>
+  <%= link_to 'Edit Account', edit_user_registration_path, class: 'btn btn-primary' %>
+<% else %>
   <%= link_to 'Login', new_user_session_path, class: 'btn btn-primary' %>
   <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-primary' %>
 <% end %>

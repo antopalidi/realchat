@@ -17,12 +17,14 @@ class User < ApplicationRecord
 
   after_commit :add_default_avatar, on: %i[create update]
 
+  validates :avatar, presence: true
+
   def avatar_thumbnail
-    avatar.variant(resize_to_limit: [150, 150]).processed
+    avatar.variant(resize_to_limit: [150, 150])
   end
 
   def chat_avatar
-    avatar.variant(resize_to_limit: [50, 50]).processed
+    avatar.variant(resize_to_limit: [50, 50])
   end
 
   def broadcast_update
@@ -48,8 +50,8 @@ class User < ApplicationRecord
     return if avatar.attached?
 
     avatar.attach(
-      io: File.open(Rails.root.join('app', 'assets', 'images', 'default_avatar.png')),
-      filename: 'default_avatar.png',
+      io: File.open(Rails.root.join('app', 'assets', 'images', 'default_avatar.jpg')),
+      filename: 'default_avatar.jpg',
       content_type: 'image/jpg'
     )
   end

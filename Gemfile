@@ -6,10 +6,12 @@ ruby "3.1.2"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.3"
 
+gem "devise", "~> 4.8"
+
 gem 'bootstrap', '~> 5.1.3'
 gem "sassc-rails"
 
-gem 'image_processing', '~> 1.2'
+gem 'image_processing'
 gem 'mini_magick'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
@@ -76,5 +78,3 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
-
-gem "devise", "~> 4.8"

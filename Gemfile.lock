@@ -255,7 +255,7 @@ DEPENDENCIES
   capybara
   debug
   devise (~> 4.8)
-  image_processing (~> 1.2)
+  image_processing
   importmap-rails
   jbuilder
   mini_magick
