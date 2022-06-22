@@ -33,3 +33,11 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+/node_modules
+public/uploads
+.yarn
+.secrets.yml
+.env
+/config/database.yml
+/config/secrets.yml
+dump.rdb
