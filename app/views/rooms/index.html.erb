@@ -1,7 +1,7 @@
 <div id='chatroom_container' class="container-fluid h-100">
   <div class="row justify-content-center h-100 pt-4">
     <div class="col-md-4 col-xl-3 chat">
-      <div class="card  p-3 mb-sm-3 mb-md-0 contacts_card bg-light bg-gradient">
+      <div class="card shadow p-3 mb-sm-3 mb-md-0 contacts_card bg-light bg-gradient">
         <h4> Hi <%= @current_user.email %> </h4>
         <hr>
         <h4> Users </h4>
@@ -18,9 +18,8 @@
         </div>
       </div>
     </div>
-
-    <div class="col-md-8 col-xl-6 chat">
-      <div class="card justify-content-between bg-light bg-gradient">
+    <div class="col-md-8 col-xl-8 chat">
+      <div class="card shadow justify-content-between bg-light bg-gradient">
         <div class="card-header msg_head">
           <div class="d-flex bd-highlight">
             <%= @user&.email || @single_room.name %>
