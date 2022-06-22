@@ -22,7 +22,7 @@
       <div class="card shadow justify-content-between bg-light bg-gradient">
         <div class="card-header msg_head">
           <div class="d-flex bd-highlight">
-            <%= @user&.email || @single_room.name %>
+            <%= @user&.email || @single_room&.name %>
           </div>
         </div>
         <% if @single_room %>
