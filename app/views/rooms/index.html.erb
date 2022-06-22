@@ -2,18 +2,19 @@
   <div class="row justify-content-center h-100 pt-4">
     <div class="col-md-4 col-xl-3 chat">
       <div class="card shadow p-3 mb-sm-3 mb-md-0 contacts_card bg-light bg-gradient">
-        <h4> Hi <%= @current_user.email %> </h4>
-        <hr>
+        <h4 class="list-group-item px-3 border-0 rounded-3 list-group-item-success mb-5 shadow-lg text-gradient"> Hi <%=
+          @current_user.email
+        %> </h4>
         <h4> Users </h4>
         <%= turbo_stream_from 'users' %>
-        <div id="users">
+        <div id="users" class="list-group-small">
           <%= render @users %>
         </div>
         <hr>
         <h4> Rooms </h4>
         <%= render 'rooms/new_room_form' %>
         <%= turbo_stream_from 'rooms' %>
-        <div id="rooms">
+        <div id="rooms" class="list-group-small">
           <%= render @rooms %>
         </div>
       </div>
