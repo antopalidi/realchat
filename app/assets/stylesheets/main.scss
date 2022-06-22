@@ -108,8 +108,8 @@ body,html{
 
 }
 .user_img_msg{
-  height: 40px;
-  width: 40px;
+  height: 30px;
+  width: 30px;
   border:1.5px solid #f5f6fa;
 
 }
@@ -198,6 +198,10 @@ body,html{
 }
 .msg_head{
   position: relative;
+}
+
+.list-group-item.active {
+  background-color: #cfdff6 !important;
 }
 #action_menu_btn{
   position: absolute;

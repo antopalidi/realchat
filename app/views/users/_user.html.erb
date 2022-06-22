@@ -1,3 +1,15 @@
-<%= link_to user.email, user,
-            class: 'list-group-item rounded-3 py-1 my-1 list-group-item-action ripple link-secondary
+<% if @single_room && @single_room.participant?(@single_room, user) %>
+  <% isActive = 'active' %>
+<% else %>
+  <% isActive = '' %>
+<% end %>
+<div class= "list-group-item rounded-3 border-0 py-1 my-1 d-flex align-items-center
+justify-content-between <%= isActive %>",
+     aria-current="true">
+  <div>
+    <%= link_to image_tag(user.chat_avatar, class: 'rounded-circle user_img_msg'), user %>
+  </div>
+  <%= link_to user.email, user,
+              class: ' ripple link-secondary
             text-decoration-none' %>
+</div>
