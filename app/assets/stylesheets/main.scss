@@ -17,6 +17,11 @@ body,html{
   overflow-y: scroll;
 }
 
+#messages::-webkit-scrollbar,
+.card::-webkit-scrollbar {
+  width: 0;
+}
+
 .card{
   height: calc(100vh - 100px);
   border-radius: 15px !important;
