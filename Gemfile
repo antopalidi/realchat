@@ -9,6 +9,9 @@ gem "rails", "~> 7.0.3"
 gem 'bootstrap', '~> 5.1.3'
 gem "sassc-rails"
 
+gem 'image_processing', '~> 1.2'
+gem 'mini_magick'
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
