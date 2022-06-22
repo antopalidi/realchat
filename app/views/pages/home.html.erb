@@ -1,7 +1,7 @@
 <h1>RealChat</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
 <%= link_to 'Start Chatting', rooms_path %>
-<%= image_tag(current_user.avatar_thumbnail) %>
+<%= image_tag(current_user&.avatar_thumbnail) %>
 <% if current_user %>
   <%= button_to 'Logout', destroy_user_session_path, method: :delete %>
   <%= link_to 'Edit Account', edit_user_registration_path, class: 'btn btn-primary'%>

@@ -203,6 +203,12 @@ body,html{
 .list-group-item.active {
   background-color: #cfdff6 !important;
 }
+
+.personal_chat .list-group-item,
+.personal_chat .list-group-item.active{
+  background-color: #e0daff !important;
+}
+
 #action_menu_btn{
   position: absolute;
   right: 10px;
