@@ -3,11 +3,12 @@
 <% else %>
   <% isActive = '' %>
 <% end %>
-<div class= "list-group-item rounded-3 border-0 py-1 my-1 d-flex align-items-center
-justify-content-between <%= isActive %>",
-     aria-current="true">
-  <div>
+<div class="list-group-item rounded-3 border-0 py-1 my-1 d-flex align-items-center
+justify-content-between <%= isActive %>">
+  <div class="bd-highlight ">
     <%= link_to image_tag(user.chat_avatar, class: 'rounded-circle user_img_msg'), user %>
+    <%= turbo_stream_from 'user_status' %>
+    <%= render 'users/status', user: user %>
   </div>
   <%= link_to user.email, user,
               class: ' ripple link-secondary
