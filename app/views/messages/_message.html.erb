@@ -1,5 +1,5 @@
 <div class="card-body position-relative msg_card_body">
-  <div class="position-relative d-flex justify-content-start flex-row mb-4 msg-<%= message.user.id %>">
+  <div class="position-relative d-flex justify-content-end flex-row-reverse mb-4 msg-<%= message.user.id %>">
     <div class="msg_container bg-secondary bg-light bg-gradient min-w-50 border">
       <%= message.body %>
       <span class="msg_time text-muted"><%= l(message.created_at, format: :short) %></span>
