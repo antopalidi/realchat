@@ -1,7 +1,22 @@
 <div class="card-body position-relative msg_card_body">
   <div class="position-relative d-flex justify-content-end flex-row-reverse mb-4 msg-<%= message.user.id %>">
     <div class="msg_container bg-secondary bg-light bg-gradient min-w-50 border">
-      <%= message.body %>
+      <div>
+        <%= message.body %>
+      </div>
+      <% if message.attachments.attached? %>
+        <% message.attachments.each_with_index do |attachment, index| %>
+          <% if attachment.image? %>
+            <%= image_tag(message.chat_attachment(index)) %>
+          <% elsif attachment.video? %>
+            <%= video_tag(url_for(attachment), style: 'height:auto; width:100%', controls: '') %>
+          <% elsif attachment.audio? %>
+            <%= audio_tag(url_for(attachment), controls: '') %>
+          <% else %>
+          <%= link_to attachment.filename, url_for(attachment), style: 'text-decoration: none; color: #fff' %>
+          <% end %>
+        <% end %>
+      <% end %>
       <span class="msg_time text-muted"><%= l(message.created_at, format: :short) %></span>
       <% unless message.room.is_private %>
         <span class="msg_author text-muted"><%= message.user.email %></span>
