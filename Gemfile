@@ -9,6 +9,7 @@ gem "rails", "~> 7.0.3"
 gem "devise", "~> 4.8"
 
 gem 'bootstrap', '~> 5.1.3'
+gem 'bootstrap-icons-helper'
 gem "sassc-rails"
 
 gem 'image_processing'
