@@ -1,39 +1,67 @@
-<h2>Sign up</h2>
+<div class="d-flex justify-content-center bg-blue-100">
+  <div class="form-body  bg-gradient p-4 mt-5">
+    <div class="card-header text-light">
+      <h2>Sign up</h2>
+    </div>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="input-group form-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <%= bootstrap_icon "envelope-fill", width: 25, height: 25, fill: 'white' %>
+          </span>
+        </div>
+        <%= f.email_field :email, class: 'form-control', autofocus: true, autocomplete: "email", placeholder: 'email', required: true %>
+      </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", required: true %>
+      <div class="input-group form-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <%= bootstrap_icon "person-fill", width: 25, height: 25, fill: 'white' %>
+          </span>
+        </div>
+        <%= f.text_field :username, class: 'form-control', autofocus: true, autocomplete: "username",
+                         placeholder: 'username', required: true %>
+      </div>
+
+      <div class="input-group form-group mb-0">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <%= bootstrap_icon "key-fill", width: 25, height: 25, fill: 'white' %>
+          </span>
+        </div>
+        <%= f.password_field :password, class: 'form-control', autocomplete: "new-password", placeholder: 'password', required: true %>
+      </div>
+
+      <% if @minimum_password_length %>
+        <em class="fs-6 mb-3 text-light">(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %>
+
+      <div class="input-group form-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <%= bootstrap_icon "key-fill", width: 25, height: 25, fill: 'white' %>
+          </span>
+        </div>
+        <%= f.password_field :password_confirmation, class: 'form-control', autocomplete: "new-password", placeholder: 'confirm password',
+                             required: true %>
+      </div>
+
+      <div class="input-group form-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <%= bootstrap_icon "person-bounding-box", width: 25, height: 25, fill: 'white' %>
+          </span>
+        </div>
+        <%= f.file_field :avatar, class: 'form-control' %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Sign up", class: 'btn float-right login_btn mb-4' %>
+      </div>
+    <% end %>
+
+    <%= render "devise/shared/links" %>
   </div>
-
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username, autofocus: true, autocomplete: "username", required: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :avatar %><br />
-    <%= f.file_field :avatar %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password", required: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", required: true %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

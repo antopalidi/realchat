@@ -1,5 +1,7 @@
 <%= form_with(model: @room, remote: true, class: "d-flex mb-3",
               data: { controller: 'reset-form', action: 'turbo:submit-end->reset-form#reset' }) do |f| %>
   <%= f.text_field :name, class: "form-control me-2", autocomplete: 'off' %>
-  <%= f.submit data: { disable_with: false }, class: 'btn btn-warning' %>
+  <%= button_tag type: 'submit', data: { disable_with: false }, class: "btn btn-warning" do %>
+    <%= bootstrap_icon "plus-circle", width: 25, height: 25 %>
+  <% end %>
 <% end %>

@@ -1,6 +1,9 @@
 body, html {
   height: 100%;
   margin: 0;
+  background-image: url('bg.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .chat {
@@ -25,7 +28,7 @@ body, html {
 .card {
   height: calc(100vh - 100px);
   border-radius: 15px !important;
-  background-color: rgba(224, 230, 234, .6) !important;
+  background-color: rgba(224, 230, 234, .8) !important;
   overflow-y: scroll;
 }
 

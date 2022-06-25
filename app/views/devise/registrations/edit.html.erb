@@ -1,54 +1,100 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="d-flex justify-content-center bg-blue-100">
+  <div class="form-body  bg-gradient p-4 mt-5">
+    <div class="card-header text-light">
+      <h2>Edit <%= resource_name.to_s.humanize %></h2>
+    </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", requested: true %>
-  </div>
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username, requested: true, autofocus: true, autocomplete: "username" %>
-  </div>
-  <div class="field">
-    <%= image_tag(resource.avatar.thumb.url) if resource.avatar? %>
-  </div>
-  <div class="field">
-    <%= f.label :avatar %><br />
-    <%= f.file_field :avatar %>
-  </div>
+      <div class="input-group form-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <%= bootstrap_icon "envelope-fill", width: 25, height: 25, fill: 'white' %>
+          </span>
+        </div>
+        <%= f.email_field :email, class: 'form-control', autofocus: true, autocomplete: "email", placeholder: 'email', required: true %>
+      </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+      <div class="input-group form-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <%= bootstrap_icon "person-fill", width: 25, height: 25, fill: 'white' %>
+          </span>
+        </div>
+        <%= f.text_field :username, class: 'form-control', autofocus: true, autocomplete: "username",
+                         placeholder: 'username', required: true %>
+      </div>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+      <div class="input-group form-group mb-3 d-flex align-items-center text-light ">
+        <%= image_tag(resource.avatar.thumb.url) if resource.avatar? %>
+        <p class="ms-3 m-auto">Change your avatar</p>
+      </div>
+
+      <div class="input-group form-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <%= bootstrap_icon "person-bounding-box", width: 25, height: 25, fill: 'white' %>
+          </span>
+        </div>
+        <%= f.file_field :avatar, class: 'form-control' %>
+      </div>
+
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+
+      <i class="fs-6 text-light">(Password leave blank if you don't want to change it)</i><br/>
+
+      <div class="input-group form-group mb-0">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <%= bootstrap_icon "key-fill", width: 25, height: 25, fill: 'white' %>
+          </span>
+        </div>
+        <%= f.password_field :password, class: 'form-control', autocomplete: "new-password", placeholder: 'password' %>
+      </div>
+
+      <% if @minimum_password_length %>
+        <em class="fs-6 mb-3 text-light">(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %>
+
+
+      <div class="input-group form-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <%= bootstrap_icon "key-fill", width: 25, height: 25, fill: 'white' %>
+          </span>
+        </div>
+        <%= f.password_field :password_confirmation, class: 'form-control', autocomplete: "new-password",
+                             placeholder: 'confirm password' %>
+      </div>
+
+      <i class="fs-6 text-light">(we need your current password to confirm your changes)</i><br/>
+
+      <div class="input-group form-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <%= bootstrap_icon "key-fill", width: 25, height: 25, fill: 'white' %>
+          </span>
+        </div>
+        <%= f.password_field :current_password, class: 'form-control', autocomplete: "current-password",
+                             placeholder: 'current password', required: true %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Update", class: 'text-light btn btn-success mb-4' %>
+      </div>
     <% end %>
+
+    <h3 class="text-light">Cancel my account</h3>
+
+    <p class="text-light">Unhappy? <%= button_to "Cancel my account", registration_path(resource_name),
+                                                 data: { confirm: "Are you sure?" },
+                                                 method: :delete,
+                                                 class: 'text-light btn btn-danger' %></p>
+
+    <%= link_to "Back", :back, class: 'text-light text-decoration-none' %>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password", requested: true %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+</div>

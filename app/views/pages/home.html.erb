@@ -1,14 +1,17 @@
-<h1>RealChat</h1>
+<div class="p-4 mt-5 home-page bg-light bg-gradient opacity-85 rounded-3">
+  <h1 class="mb-4 text-muted">Hi <%= current_user&.username %>!</h1>
 
-<%= link_to 'Start Chatting', rooms_path %>
-<% if current_user %>
-  <%#= image_tag(current_user.avatar_thumbnail) %>
-  <%= image_tag(current_user.avatar.thumb.url) if current_user.avatar? %>
-<% end %>
-<% if current_user %>
-  <%= button_to 'Logout', destroy_user_session_path, method: :delete %>
-  <%= link_to 'Edit Account', edit_user_registration_path, class: 'btn btn-primary' %>
-<% else %>
-  <%= link_to 'Login', new_user_session_path, class: 'btn btn-primary' %>
-  <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-primary' %>
-<% end %>
+  <% if current_user %>
+    <%= image_tag(current_user.avatar.thumb.url) if current_user.avatar? %>
+  <% end %>
+  <div class="d-flex mt-3">
+    <%= link_to 'Start Chatting', rooms_path, class: 'btn btn-warning me-2 text-light' %>
+    <% if current_user %>
+      <%= button_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-danger me-2' %>
+      <%= link_to 'Edit Account', edit_user_registration_path, class: 'btn btn-primary me-2' %>
+    <% else %>
+      <%= link_to 'Login', new_user_session_path, class: 'btn btn-primary me-2' %>
+      <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-secondary' %>
+    <% end %>
+  </div>
+</div>
