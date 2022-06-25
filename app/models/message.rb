@@ -7,22 +7,6 @@ class Message < ApplicationRecord
   after_create_commit { broadcast_append_to room }
   before_create :confirm_participant
 
-
-  # This code is for the future function of sending files in chat:
-  #
-  # has_many_attached :attachments, dependent: :destroy
-  #
-  # def chat_attachment(index)
-  #   target = attachments[index]
-  #   return unless attachments.attached?
-  #
-  #   if target.image?
-  #     target.variant(resize_to_limit: [150, 150])
-  #   elsif target.video?
-  #     target.variant(resize_to_limit: [150, 150])
-  #   end
-  # end
-
   def confirm_participant
     return unless room.is_private
 

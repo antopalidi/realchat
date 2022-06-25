@@ -3,6 +3,8 @@
                 data: { controller: 'reset-form', action: 'turbo:submit-end->reset-form#reset' }) do |f| %>
     <%= f.text_area :body, id: 'chat-text', class: "form-control msg-content me-2",
                     placeholder: 'Type your message...', autocomplete: 'off' %>
-    <%= f.submit 'Send', data: { disable_with: false }, class: "btn btn-warning" %>
+      <%= button_tag type: 'submit', data: { disable_with: false }, class: "btn btn-warning" do %>
+        <%= bootstrap_icon "send", width: 25, height: 25 %>
+      <% end %>
   <% end %>
 </div>
