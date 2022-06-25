@@ -5,7 +5,7 @@
 <% end %>
 <div class="list-group-item rounded-3 border-0 py-1 my-1 d-flex align-items-center <%= isActive %>">
   <div class="bd-highlight ">
-    <%= link_to image_tag(user.chat_avatar, class: 'rounded-circle user_img_msg'), user %>
+    <%= link_to image_tag(user_avatar(user), class: 'rounded-circle user_img_msg'), user %>
     <%= turbo_stream_from 'user_status' %>
     <%= render 'users/status', user: user %>
   </div>

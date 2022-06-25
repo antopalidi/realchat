@@ -12,6 +12,9 @@ gem 'bootstrap-icons-helper'
 gem "sassc-rails"
 gem 'autoprefixer-rails'
 
+gem 'carrierwave'
+gem 'rmagick'
+
 gem 'dotenv-rails'
 
 gem 'image_processing'

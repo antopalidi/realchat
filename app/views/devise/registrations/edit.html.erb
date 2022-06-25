@@ -8,7 +8,7 @@
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
   <div class="field">
-    <%= image_tag(resource.avatar_thumbnail) if resource.avatar.attached? %>
+    <%= image_tag(resource.avatar.thumb.url) if resource.avatar? %>
   </div>
   <div class="field">
     <%= f.label :avatar %><br />

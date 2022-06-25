@@ -10,7 +10,7 @@
       <% end %>
     </div>
     <div class="img_cont_msg">
-      <%= image_tag(message.user.chat_avatar, class: 'rounded-circle user_img_msg w-100 h-100') %>
+      <%= image_tag(user_avatar(message.user), class: 'rounded-circle user_img_msg w-100 h-100')%>
     </div>
   </div>
 </div>
