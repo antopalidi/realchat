@@ -10,12 +10,13 @@ gem "devise", "~> 4.8"
 gem 'bootstrap', '~> 5.1.3'
 gem 'bootstrap-icons-helper'
 gem "sassc-rails"
+gem 'autoprefixer-rails'
 
 gem 'dotenv-rails'
 
 gem 'image_processing'
 gem 'mini_magick'
-gem "sprockets-rails"
+gem 'sprockets-rails'
 
 gem "puma", "~> 5.0"
 gem "importmap-rails"
