@@ -7,5 +7,5 @@ test:
 
 production:
   adapter: redis
-  url: <%= ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" } %>
+  url: 'redis://redistogo:bd757287b4c34c8bea71ba6f0f8aa51f@spinyfin.redistogo.com:9867/'
   channel_prefix: realchat_production
