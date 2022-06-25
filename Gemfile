@@ -11,6 +11,8 @@ gem 'bootstrap', '~> 5.1.3'
 gem 'bootstrap-icons-helper'
 gem "sassc-rails"
 
+gem 'dotenv-rails'
+
 gem 'image_processing'
 gem 'mini_magick'
 gem "sprockets-rails"
