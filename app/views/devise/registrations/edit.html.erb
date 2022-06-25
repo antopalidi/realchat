@@ -5,7 +5,11 @@
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", requested: true %>
+  </div>
+  <div class="field">
+    <%= f.label :username %><br />
+    <%= f.text_field :username, requested: true, autofocus: true, autocomplete: "username" %>
   </div>
   <div class="field">
     <%= image_tag(resource.avatar.thumb.url) if resource.avatar? %>
@@ -35,7 +39,7 @@
 
   <div class="field">
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
+    <%= f.password_field :current_password, autocomplete: "current-password", requested: true %>
   </div>
 
   <div class="actions">

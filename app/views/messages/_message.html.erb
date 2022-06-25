@@ -6,7 +6,7 @@
       </div>
       <span class="msg_time text-muted"><%= l(message.created_at, format: :short) %></span>
       <% unless message.room.is_private %>
-        <span class="msg_author text-muted"><%= message.user.email %></span>
+        <span class="msg_author text-muted"><%= message.user.username %></span>
       <% end %>
     </div>
     <div class="img_cont_msg">

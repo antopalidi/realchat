@@ -16,6 +16,8 @@ class User < ApplicationRecord
 
   after_update_commit { broadcast_update }
 
+  validates_uniqueness_of :username, required: true, case_sensitive: false, length: {minimum: 3, maximum: 15}
+
   def broadcast_update
     broadcast_replace_to 'user_status', partial: 'users/status', user: self
   end
