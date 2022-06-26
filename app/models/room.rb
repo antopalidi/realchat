@@ -2,7 +2,7 @@ class Room < ApplicationRecord
   has_many :messages
   has_many :participants, dependent: :destroy
 
-  validates_uniqueness_of :name
+  validates :name, uniqueness: true, length: {minimum: 3, maximum: 25}
 
   scope :public_rooms, -> { where(is_private: false) }
 
