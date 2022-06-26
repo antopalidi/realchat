@@ -14,6 +14,7 @@ gem 'autoprefixer-rails'
 
 gem 'carrierwave'
 gem 'rmagick'
+gem 'fog-aws'
 
 gem 'dotenv-rails'
 
