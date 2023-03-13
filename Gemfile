@@ -18,7 +18,7 @@ gem 'fog-aws'
 
 gem 'dotenv-rails'
 
-gem "activerecord", ">= 7.0.3.1"
+gem "activerecord", ">= 7.0.4.1"
 
 gem 'image_processing'
 gem 'mini_magick'
